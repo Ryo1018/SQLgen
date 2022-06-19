@@ -94,6 +94,8 @@ namespace SQLgenerator
             {
                 deduplication_column_textbox.ReadOnly = true;
                 deduplicationFlag = false;
+                order_asc_button.Checked = false;
+                order_desc_button.Checked = false;
             }
         }
 
@@ -114,6 +116,10 @@ namespace SQLgenerator
                 if (deduplicationFlag == true && order_desc_button.Checked)
                 {
                     result_text.Text += String.Format("\r\nGROUP BY {0}\r\nORDER BY {0} DESC", deduplication_column_textbox.Text);
+                }
+                else if (deduplicationFlag == true && order_asc_button.Checked)
+                {
+                    result_text.Text += String.Format("\r\nGROUP BY {0}\r\nORDER BY {0} ASC", deduplication_column_textbox.Text);
                 }
                 else if (deduplicationFlag == true)
                 {

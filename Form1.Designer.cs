@@ -65,6 +65,7 @@
             // 
             // table_textbox
             // 
+            this.table_textbox.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.table_textbox.Location = new System.Drawing.Point(132, 17);
             this.table_textbox.Name = "table_textbox";
             this.table_textbox.Size = new System.Drawing.Size(256, 19);
@@ -280,7 +281,7 @@
             this.builder.AutoSize = true;
             this.builder.Cursor = System.Windows.Forms.Cursors.Hand;
             this.builder.Font = new System.Drawing.Font("MS UI Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.builder.Location = new System.Drawing.Point(334, 499);
+            this.builder.Location = new System.Drawing.Point(323, 500);
             this.builder.Name = "builder";
             this.builder.Size = new System.Drawing.Size(83, 11);
             this.builder.TabIndex = 12;
