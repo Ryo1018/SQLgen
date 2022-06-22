@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.table_textbox = new System.Windows.Forms.TextBox();
@@ -50,6 +51,8 @@
             this.run_button = new System.Windows.Forms.Button();
             this.copy_button = new System.Windows.Forms.LinkLabel();
             this.builder = new System.Windows.Forms.LinkLabel();
+            this.copied_clipboard_label = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.select_menu.SuspendLayout();
             this.SuspendLayout();
@@ -59,16 +62,16 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(24, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 12);
+            this.label1.Size = new System.Drawing.Size(77, 12);
             this.label1.TabIndex = 0;
-            this.label1.Text = "WHAT\'S TABLE?";
+            this.label1.Text = "WHAT TABLE";
             // 
             // table_textbox
             // 
-            this.table_textbox.Font = new System.Drawing.Font("ＭＳ ゴシック", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.table_textbox.Location = new System.Drawing.Point(132, 17);
+            this.table_textbox.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
+            this.table_textbox.Location = new System.Drawing.Point(107, 17);
             this.table_textbox.Name = "table_textbox";
-            this.table_textbox.Size = new System.Drawing.Size(256, 19);
+            this.table_textbox.Size = new System.Drawing.Size(281, 19);
             this.table_textbox.TabIndex = 1;
             this.table_textbox.TextChanged += new System.EventHandler(this.table_changed);
             // 
@@ -119,7 +122,7 @@
             this.groupBox1.Size = new System.Drawing.Size(386, 45);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "WHAT DO YOU WANT TO DO?";
+            this.groupBox1.Text = "WHICH ONE";
             // 
             // selectbutton
             // 
@@ -268,6 +271,8 @@
             // 
             this.copy_button.AutoSize = true;
             this.copy_button.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.copy_button.DisabledLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.copy_button.Enabled = false;
             this.copy_button.Location = new System.Drawing.Point(94, 388);
             this.copy_button.Name = "copy_button";
             this.copy_button.Size = new System.Drawing.Size(35, 12);
@@ -281,7 +286,7 @@
             this.builder.AutoSize = true;
             this.builder.Cursor = System.Windows.Forms.Cursors.Hand;
             this.builder.Font = new System.Drawing.Font("MS UI Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.builder.Location = new System.Drawing.Point(323, 500);
+            this.builder.Location = new System.Drawing.Point(323, 499);
             this.builder.Name = "builder";
             this.builder.Size = new System.Drawing.Size(83, 11);
             this.builder.TabIndex = 12;
@@ -289,12 +294,27 @@
             this.builder.Text = "build by Ryo1018";
             this.builder.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.builder_LinkClicked);
             // 
+            // copied_clipboard_label
+            // 
+            this.copied_clipboard_label.AutoSize = true;
+            this.copied_clipboard_label.Location = new System.Drawing.Point(24, 499);
+            this.copied_clipboard_label.Name = "copied_clipboard_label";
+            this.copied_clipboard_label.Size = new System.Drawing.Size(133, 12);
+            this.copied_clipboard_label.TabIndex = 13;
+            this.copied_clipboard_label.Text = "COPIED TO CLIPBOARD";
+            this.copied_clipboard_label.Visible = false;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(429, 517);
+            this.Controls.Add(this.copied_clipboard_label);
             this.Controls.Add(this.builder);
             this.Controls.Add(this.copy_button);
             this.Controls.Add(this.run_button);
@@ -343,6 +363,7 @@
         private System.Windows.Forms.Button run_button;
         private System.Windows.Forms.LinkLabel copy_button;
         private System.Windows.Forms.LinkLabel builder;
+        private System.Windows.Forms.Label copied_clipboard_label;
+        private System.Windows.Forms.Timer timer1;
     }
 }
-

@@ -102,6 +102,9 @@ namespace SQLgenerator
 
         private void run_button_Click(object sender, EventArgs e)
         {
+            // parameters_textbox.Text = parameters_textbox.Text.Replace("\"", "\'");
+            table_textbox.Text = table_textbox.Text.Replace("=", " as ");
+
             if (state == 0) // SELECT
             {
                 if (parameters_textbox.Text != "")
@@ -139,6 +142,14 @@ namespace SQLgenerator
             {
                 result_text.Text = String.Format("DELETE FROM {0} WHERE {1}", table_textbox.Text, parameters_textbox.Text);
             }
+
+
+            if (result_text.Text != "")
+            {
+                result_text.Text = result_text.Text.Replace("\"", "\'");
+                copy_button.Enabled = true;
+            }
+
         }
 
         private void copy_button_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -152,15 +163,28 @@ namespace SQLgenerator
             }
             */
 
-            result_text.SelectAll();
-            result_text.Copy();
+            if (result_text.Text != "")
+            {
+                result_text.SelectAll();
+                result_text.Copy();
 
+                copied_clipboard_label.Visible = true;
+
+                timer1.Interval = 3000;
+                timer1.Start();
+            }
 
         }
 
         private void builder_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://github.com/Ryo1018");
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timer1.Stop();
+            copied_clipboard_label.Visible = false;
         }
     }
 }
